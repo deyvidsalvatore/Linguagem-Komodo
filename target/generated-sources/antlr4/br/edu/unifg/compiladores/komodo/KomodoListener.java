@@ -58,16 +58,6 @@ public interface KomodoListener extends ParseTreeListener {
 	 */
 	void exitDataType(KomodoParser.DataTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KomodoParser#stringLL}.
-	 * @param ctx the parse tree
-	 */
-	void enterStringLL(KomodoParser.StringLLContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link KomodoParser#stringLL}.
-	 * @param ctx the parse tree
-	 */
-	void exitStringLL(KomodoParser.StringLLContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link KomodoParser#expression}.
 	 * @param ctx the parse tree
 	 */
@@ -78,15 +68,35 @@ public interface KomodoListener extends ParseTreeListener {
 	 */
 	void exitExpression(KomodoParser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KomodoParser#functionDeclaresao}.
+	 * Enter a parse tree produced by {@link KomodoParser#concatenation}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunctionDeclaresao(KomodoParser.FunctionDeclaresaoContext ctx);
+	void enterConcatenation(KomodoParser.ConcatenationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link KomodoParser#functionDeclaresao}.
+	 * Exit a parse tree produced by {@link KomodoParser#concatenation}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunctionDeclaresao(KomodoParser.FunctionDeclaresaoContext ctx);
+	void exitConcatenation(KomodoParser.ConcatenationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#concatValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterConcatValue(KomodoParser.ConcatValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#concatValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitConcatValue(KomodoParser.ConcatValueContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFunctionDeclaration(KomodoParser.FunctionDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFunctionDeclaration(KomodoParser.FunctionDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KomodoParser#parameters}.
 	 * @param ctx the parse tree

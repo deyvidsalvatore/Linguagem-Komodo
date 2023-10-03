@@ -41,23 +41,29 @@ public interface KomodoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDataType(KomodoParser.DataTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KomodoParser#stringLL}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStringLL(KomodoParser.StringLLContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link KomodoParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitExpression(KomodoParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KomodoParser#functionDeclaresao}.
+	 * Visit a parse tree produced by {@link KomodoParser#concatenation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunctionDeclaresao(KomodoParser.FunctionDeclaresaoContext ctx);
+	T visitConcatenation(KomodoParser.ConcatenationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#concatValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConcatValue(KomodoParser.ConcatValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#functionDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionDeclaration(KomodoParser.FunctionDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KomodoParser#parameters}.
 	 * @param ctx the parse tree

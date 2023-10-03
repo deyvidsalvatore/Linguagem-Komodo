@@ -76,18 +76,6 @@ public class KomodoBaseListener implements KomodoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStringLL(KomodoParser.StringLLContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStringLL(KomodoParser.StringLLContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterExpression(KomodoParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -100,13 +88,37 @@ public class KomodoBaseListener implements KomodoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunctionDeclaresao(KomodoParser.FunctionDeclaresaoContext ctx) { }
+	@Override public void enterConcatenation(KomodoParser.ConcatenationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunctionDeclaresao(KomodoParser.FunctionDeclaresaoContext ctx) { }
+	@Override public void exitConcatenation(KomodoParser.ConcatenationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConcatValue(KomodoParser.ConcatValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConcatValue(KomodoParser.ConcatValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionDeclaration(KomodoParser.FunctionDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionDeclaration(KomodoParser.FunctionDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

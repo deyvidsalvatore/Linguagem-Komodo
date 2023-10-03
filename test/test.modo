@@ -1,1 +1,17 @@
-hello world
+function greet(name: string) {
+
+}
+
+function greet(name: string): string {
+    return "Hello, " + name + "!";
+}
+
+function greet(name: string): string {
+	var x: string = "Olá mundo!";
+}
+
+function greet(name: string) {
+    function greet(name: string): string {
+	var x: string = "Olá mundo!";
+  }
+}

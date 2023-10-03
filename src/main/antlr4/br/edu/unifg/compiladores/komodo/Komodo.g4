@@ -4,17 +4,20 @@ start: program EOF;
 
 program: statement+;
 
-statement: varDeclaration SEMICOLON  | functionDeclaresao SEMICOLON;
+statement: varDeclaration SEMICOLON
+         | functionDeclaration;
 
 varDeclaration: VAR VARIABLE_NAME DOUBLEDOT dataType ASSIGN expression | VAR VARIABLE_NAME DOUBLEDOT dataType;
 
 dataType: STRING | NUMBER;
 
-stringLL: STRING_LITERAL;
+expression: STRING_LITERAL | NUM | VARIABLE_NAME | concatenation;
 
-expression: STRING_LITERAL | NUM;
+concatenation: concatValue (CONCAT concatValue)*;
 
-functionDeclaresao : FUNCTION VARIABLE_NAME OPENPAREN parameters? CLOSEPAREN returnType? OPENBRACE functionBody CLOSEBRACE;
+concatValue: STRING_LITERAL | NUM | VARIABLE_NAME;
+
+functionDeclaration: FUNCTION VARIABLE_NAME OPENPAREN parameters? CLOSEPAREN returnType? OPENBRACE functionBody? CLOSEBRACE;
 
 parameters: parameter (COMMA parameter)*;
 
@@ -22,10 +25,9 @@ parameter: VARIABLE_NAME DOUBLEDOT dataType;
 
 returnType: DOUBLEDOT dataType;
 
-returnStatement: RETURN stringLL CONCAT VARIABLE_NAME CONCAT stringLL SEMICOLON;
+returnStatement: RETURN expression SEMICOLON;
 
-functionBody: returnStatement+;
-
+functionBody: (returnStatement | statement)+;
 
 // Palavras-chave
 CLASS: 'class';
