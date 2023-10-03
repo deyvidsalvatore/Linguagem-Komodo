@@ -1,0 +1,31 @@
+// Arquivo Rectangle.nagi dentro de uma pasta Geometry
+package Geometry;
+
+class Rectangle {
+    var width: number;
+    var height: number;
+
+    constructor(width: number, height: number) {
+        this.width = width;
+        this.height = height;
+    }
+
+    method getArea(): number {
+        return this.width * this.height;
+    }
+}
+
+// Arquivo Principal.nagi dentro de uma pasta Geometry
+package Geometry;
+
+import Geometry.Rectangle;
+
+class Principal {
+    method run() {
+        var rectangle = new Rectangle(10, 5);
+        var area = rectangle.getArea();
+        print("Área do retângulo: " + area);
+    }
+
+    run();
+}

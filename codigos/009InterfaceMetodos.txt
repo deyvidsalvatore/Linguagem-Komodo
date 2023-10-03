@@ -1,0 +1,14 @@
+interface Printable {
+    method printMessage(): void;
+}
+
+class Message implements Printable {
+    method printMessage(): void {
+        print("Mensagem impressa!");
+    }
+}
+
+interface Calculator {
+    method add(a: number, b: number): number;
+    method subtract(a: number, b: number): number;
+}

@@ -1,0 +1,19 @@
+class Person {
+    var name: string;
+    var age: number;
+
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
+
+    method sayHello(): string {
+        return "Hello, my name is " + this.name;
+    }
+}
+
+var person1 = new Person("Alice", 30);
+var person2 = new Person("Bob", 25);
+
+print(person1.sayHello());
+print(person2.sayHello());

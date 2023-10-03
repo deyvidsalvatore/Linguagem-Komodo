@@ -1,0 +1,5 @@
+var count: number = 1;
+while (count <= 5) {
+    print("Contagem: " + count);
+    count = count + 1;
+}

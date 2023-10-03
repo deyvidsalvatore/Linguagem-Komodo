@@ -1,0 +1,9 @@
+var name: string;
+var age: number;
+print("Enter your name: ");
+input(name);
+print("Enter your age: ");
+input(age);
+print("Enter your gender: ");
+print("Hello, " + name + "!");
+print("Your age is, " + age + "!");

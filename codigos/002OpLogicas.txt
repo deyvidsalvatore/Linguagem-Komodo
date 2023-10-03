@@ -1,0 +1,11 @@
+var x: number = 1 + 2;
+var y: number = 1 - 2;
+var z: number = 1 * 2;
+var g: number = 1 / 2;
+var h: number = 1 % 2;
+var a: number = x += 1;
+var p: boolean = true;
+var q: boolean = false;
+var andResult: boolean = p || q;
+var orResult: boolean = p && q;
+var notResult: boolean = !p;

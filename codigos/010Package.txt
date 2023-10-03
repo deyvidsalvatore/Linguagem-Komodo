@@ -1,0 +1,18 @@
+package Geometry;
+
+class Rectangle {
+    var width: number;
+    var height: number;
+
+    constructor(width: number, height: number) {
+        this.width = width;
+        this.height = height;
+    }
+
+    method getArea(): number {
+        return this.width * this.height;
+    }
+}
+
+var rectangle = new Rectangle(4, 6);
+print("Área do retângulo: " + rectangle.getArea());

@@ -1,0 +1,11 @@
+var a: number = 10;
+var b: number = 5;
+var isEqual: boolean = a == b;
+var isNotEqual: boolean = a != b;
+var isGreaterThan: boolean = a > b;
+var isLessThan: boolean = a < b;
+var flag: boolean = true;
+var isGreaterOrEqual: boolean = a >= b;
+var isLessOrEqual: boolean = a <= b;
+var frase = "Hello World";
+var colors: array = ["red", "green", "blue"];

@@ -1,0 +1,10 @@
+var numbers: array number = [1, 2, 3, 4];
+var fruits: array string = ["apple", "banana", "cherry"];
+
+var colors: array string = ["red", "green", "blue"];
+var firstColor: string = colors[0];
+
+colors[1] = "orange";
+
+var x: number = numbers[2];
+var y: string = fruits[0];
