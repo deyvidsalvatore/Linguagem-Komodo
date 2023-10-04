@@ -68,6 +68,36 @@ public interface KomodoListener extends ParseTreeListener {
 	 */
 	void exitExpression(KomodoParser.ExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link KomodoParser#logicalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalExpression(KomodoParser.LogicalExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#logicalExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalExpression(KomodoParser.LogicalExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#logicalTerm}.
+	 * @param ctx the parse tree
+	 */
+	void enterLogicalTerm(KomodoParser.LogicalTermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#logicalTerm}.
+	 * @param ctx the parse tree
+	 */
+	void exitLogicalTerm(KomodoParser.LogicalTermContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#comparisonExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterComparisonExpression(KomodoParser.ComparisonExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#comparisonExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitComparisonExpression(KomodoParser.ComparisonExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link KomodoParser#concatenation}.
 	 * @param ctx the parse tree
 	 */
@@ -78,15 +108,15 @@ public interface KomodoListener extends ParseTreeListener {
 	 */
 	void exitConcatenation(KomodoParser.ConcatenationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link KomodoParser#concatValue}.
+	 * Enter a parse tree produced by {@link KomodoParser#concatenationElement}.
 	 * @param ctx the parse tree
 	 */
-	void enterConcatValue(KomodoParser.ConcatValueContext ctx);
+	void enterConcatenationElement(KomodoParser.ConcatenationElementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link KomodoParser#concatValue}.
+	 * Exit a parse tree produced by {@link KomodoParser#concatenationElement}.
 	 * @param ctx the parse tree
 	 */
-	void exitConcatValue(KomodoParser.ConcatValueContext ctx);
+	void exitConcatenationElement(KomodoParser.ConcatenationElementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link KomodoParser#functionDeclaration}.
 	 * @param ctx the parse tree
@@ -147,4 +177,54 @@ public interface KomodoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFunctionBody(KomodoParser.FunctionBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrintStatement(KomodoParser.PrintStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#printStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrintStatement(KomodoParser.PrintStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#inputStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterInputStatement(KomodoParser.InputStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#inputStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitInputStatement(KomodoParser.InputStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfStatement(KomodoParser.IfStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#ifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfStatement(KomodoParser.IfStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#elifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElifStatement(KomodoParser.ElifStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#elifStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElifStatement(KomodoParser.ElifStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#elseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElseStatement(KomodoParser.ElseStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#elseStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElseStatement(KomodoParser.ElseStatementContext ctx);
 }

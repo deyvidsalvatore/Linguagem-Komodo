@@ -47,17 +47,35 @@ public interface KomodoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(KomodoParser.ExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link KomodoParser#logicalExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpression(KomodoParser.LogicalExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#logicalTerm}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalTerm(KomodoParser.LogicalTermContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#comparisonExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComparisonExpression(KomodoParser.ComparisonExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link KomodoParser#concatenation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitConcatenation(KomodoParser.ConcatenationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KomodoParser#concatValue}.
+	 * Visit a parse tree produced by {@link KomodoParser#concatenationElement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitConcatValue(KomodoParser.ConcatValueContext ctx);
+	T visitConcatenationElement(KomodoParser.ConcatenationElementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KomodoParser#functionDeclaration}.
 	 * @param ctx the parse tree
@@ -94,4 +112,34 @@ public interface KomodoVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFunctionBody(KomodoParser.FunctionBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#printStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrintStatement(KomodoParser.PrintStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#inputStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInputStatement(KomodoParser.InputStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#ifStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfStatement(KomodoParser.IfStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#elifStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElifStatement(KomodoParser.ElifStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#elseStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseStatement(KomodoParser.ElseStatementContext ctx);
 }

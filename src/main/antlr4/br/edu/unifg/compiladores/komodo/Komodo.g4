@@ -1,35 +1,77 @@
 grammar Komodo;
 
+// Início da gramática
 start: program EOF;
 
+// Definição de um programa, composto por várias declarações
 program: statement+;
 
+// Definição das várias formas de declarações possíveis
 statement: varDeclaration SEMICOLON
-         | functionDeclaration;
+         | functionDeclaration
+         | printStatement SEMICOLON
+         | inputStatement SEMICOLON
+         | ifStatement
+         | expression SEMICOLON;
 
-varDeclaration: VAR VARIABLE_NAME DOUBLEDOT dataType ASSIGN expression | VAR VARIABLE_NAME DOUBLEDOT dataType;
+// Regra para declarar variáveis
+varDeclaration: VAR VARIABLE_NAME DOUBLEDOT dataType (ASSIGN expression)?;
 
-dataType: STRING | NUMBER;
+// Tipos de dados possíveis: string, número, array ou booleano
+dataType: STRING | NUMBER | ARRAY | BOOLEAN;
 
-expression: STRING_LITERAL | NUM | VARIABLE_NAME | concatenation;
+// Definição de uma expressão, que pode ser uma expressão lógica
+expression: logicalExpression;
 
-concatenation: concatValue (CONCAT concatValue)*;
+// Expressão lógica pode ser uma combinação de termos lógicos com operadores lógicos
+logicalExpression: logicalTerm (AND logicalTerm)* | logicalTerm (OR logicalTerm)* | comparisonExpression;
 
-concatValue: STRING_LITERAL | NUM | VARIABLE_NAME;
+// Um termo lógico pode ser uma comparação, uma negação ou uma expressão lógica entre parênteses
+logicalTerm: comparisonExpression | NOT logicalTerm | OPENPAREN logicalExpression CLOSEPAREN | TRUE | FALSE;
 
+// Definição de comparações
+comparisonExpression: concatenation (EQUALS | NOTEQUALS | LESSTHAN | GREATERTHAN | LESSTHANEQUALS | GREATERTHANEQUALS) concatenation | concatenation;
+
+// Concatenação de elementos
+concatenation: concatenationElement (CONCAT concatenationElement)*;
+
+// Elementos que podem ser concatenados: strings, números, nulos, arrays, booleanos ou variáveis
+concatenationElement: STRING_LITERAL | NUM | NULL | ARR | BOOL | VARIABLE_NAME;
+
+// Declaração de funções
 functionDeclaration: FUNCTION VARIABLE_NAME OPENPAREN parameters? CLOSEPAREN returnType? OPENBRACE functionBody? CLOSEBRACE;
 
+// Parâmetros de função
 parameters: parameter (COMMA parameter)*;
 
+// Definição de um parâmetro
 parameter: VARIABLE_NAME DOUBLEDOT dataType;
 
+// Tipo de retorno de função
 returnType: DOUBLEDOT dataType;
 
+// Retorno de função
 returnStatement: RETURN expression SEMICOLON;
 
+// Corpo da função
 functionBody: (returnStatement | statement)+;
 
-// Palavras-chave
+// Comando para imprimir
+printStatement: PRINT OPENPAREN expression CLOSEPAREN;
+
+// Comando de entrada de dados
+inputStatement: INPUT OPENPAREN VARIABLE_NAME CLOSEPAREN;
+
+// Comando de decisão "if"
+ifStatement: IF OPENPAREN logicalExpression CLOSEPAREN OPENBRACE (statement)* CLOSEBRACE (elifStatement)* (elseStatement)?;
+
+// Ramo "elif" do comando "if"
+elifStatement: ELIF OPENPAREN logicalExpression CLOSEPAREN OPENBRACE (statement)* CLOSEBRACE;
+
+// Ramo "else" do comando "if"
+elseStatement: ELSE OPENBRACE (statement)* CLOSEBRACE;
+
+// Palavras-chave da linguagem
 CLASS: 'class';
 CONSTRUCTOR: 'constructor';
 METHOD: 'method';
@@ -57,12 +99,6 @@ THIS: 'this';
 TRUE: 'true';
 FALSE: 'false';
 CONCAT: '+';
-
-// Variável Local
-VAR_DECLARATION: VAR VARIABLE_NAME DOUBLEDOT (STRING | NUMBER | BOOLEAN | ARRAY) (ASSIGN .*)?;
-
-// Variável GLOBAL
-GLOBAL_VAR_DECLARATION: GLOBAL VARIABLE_NAME DOUBLEDOT (STRING | NUMBER | BOOLEAN | ARRAY);
 
 // Delimitadores
 OPENBRACE: '{';
@@ -99,21 +135,20 @@ SUB_ASSIGN: '-=';
 MUL_ASSIGN: '*=';
 DIV_ASSIGN: '/=';
 
-// Booleanos
+// Operadores Lógicos
 AND: '&&';
 OR: '||';
 NOT: '!';
 
 // Espaços em branco e comentários
-ESC_SEQ	: '\\\'';
+ESC_SEQ: '\\\'';
 WS: [ \t\r\n]+ -> skip;
-        
+
 BLOCK_COMMENT: '/' .? '*/' -> skip;
 COMMENT_LINE: '//' ~[\r\n]* -> skip;
 
 // Identificadores
 STRING_LITERAL: '"' ~["\r\n]* '"';
-// Números (ex: inteiros e decimais)
 NUM: '-'? [0-9]+ ('.' [0-9]+)?;
 BOOL: TRUE | FALSE;
 VARIABLE_NAME: [a-z][a-zA-Z0-9_]*;
