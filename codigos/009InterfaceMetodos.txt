@@ -1,9 +1,9 @@
 interface Printable {
-    method printMessage(): void;
+    method printMessage();
 }
 
 class Message implements Printable {
-    method printMessage(): void {
+    method printMessage(){
         print("Mensagem impressa!");
     }
 }

@@ -1,1 +1,3 @@
-var y: boolean = false;
+class Message {
+    
+}

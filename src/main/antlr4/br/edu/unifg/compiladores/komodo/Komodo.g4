@@ -7,36 +7,48 @@ start: program EOF;
 program: statement+;
 
 // Definição das várias formas de declarações possíveis
-statement: varDeclaration SEMICOLON
+statement: packageStatement
+         | importStatement
+		 | varDeclaration SEMICOLON
          | functionDeclaration
          | printStatement SEMICOLON
          | inputStatement SEMICOLON
          | ifStatement
-         | expression SEMICOLON;
+         | whileStatement
+         | expression SEMICOLON
+         | assignmentStatement SEMICOLON
+         | arrayElementAssign SEMICOLON
+         | classDeclaration;
 
 // Regra para declarar variáveis
-varDeclaration: VAR VARIABLE_NAME DOUBLEDOT dataType (ASSIGN expression)?;
+varDeclaration: VAR VARIABLE_NAME (DOUBLEDOT dataType)? (ASSIGN (arithmeticExpression | STRING_LITERAL | NUM | BOOL | functionDeclaration | ARR))?;
 
-// Tipos de dados possíveis: string, número, array ou booleano
+// Redeclaração
+assignmentStatement: VARIABLE_NAME ASSIGN expression; 
+arrayElementAssign: VARIABLE_NAME OPENBRACK NUM CLOSEBRACK ASSIGN expression;
+
+// Tipos de dados (Palavras reservadas): string, número, array ou booleano
 dataType: STRING | NUMBER | ARRAY | BOOLEAN;
 
-// Definição de uma expressão, que pode ser uma expressão lógica
-expression: logicalExpression;
+// Definição de uma expressão, que pode ser uma expressão lógica ou aritmética
+expression: logicalExpression | arithmeticExpression | methodCall;
 
 // Expressão lógica pode ser uma combinação de termos lógicos com operadores lógicos
+// (x > 2 && x < 4) | (x < 2 ||  
 logicalExpression: logicalTerm (AND logicalTerm)* | logicalTerm (OR logicalTerm)* | comparisonExpression;
 
 // Um termo lógico pode ser uma comparação, uma negação ou uma expressão lógica entre parênteses
+// (x > 2)
 logicalTerm: comparisonExpression | NOT logicalTerm | OPENPAREN logicalExpression CLOSEPAREN | TRUE | FALSE;
 
 // Definição de comparações
 comparisonExpression: concatenation (EQUALS | NOTEQUALS | LESSTHAN | GREATERTHAN | LESSTHANEQUALS | GREATERTHANEQUALS) concatenation | concatenation;
 
 // Concatenação de elementos
-concatenation: concatenationElement (CONCAT concatenationElement)*;
+concatenation: concatenationElement (ADD concatenationElement)*;
 
 // Elementos que podem ser concatenados: strings, números, nulos, arrays, booleanos ou variáveis
-concatenationElement: STRING_LITERAL | NUM | NULL | ARR | BOOL | VARIABLE_NAME;
+concatenationElement: STRING_LITERAL | NUM | NULL | ARR | BOOL | VARIABLE_NAME | methodCall;
 
 // Declaração de funções
 functionDeclaration: FUNCTION VARIABLE_NAME OPENPAREN parameters? CLOSEPAREN returnType? OPENBRACE functionBody? CLOSEBRACE;
@@ -71,6 +83,100 @@ elifStatement: ELIF OPENPAREN logicalExpression CLOSEPAREN OPENBRACE (statement)
 // Ramo "else" do comando "if"
 elseStatement: ELSE OPENBRACE (statement)* CLOSEBRACE;
 
+// Bloco 'while'
+whileStatement: WHILE OPENPAREN logicalExpression CLOSEPAREN OPENBRACE (statement)* CLOSEBRACE;
+
+// Expressões aritméticas com atribuição
+// count += variavel;
+// count += 2 + 2 count += 2 / 2;
+arithmeticAssignmentExpression: VARIABLE_NAME ADD_ASSIGN arithmeticExpression
+                           | VARIABLE_NAME SUB_ASSIGN arithmeticExpression
+                           | VARIABLE_NAME MUL_ASSIGN arithmeticExpression
+                           | VARIABLE_NAME DIV_ASSIGN arithmeticExpression;
+
+// Expressões aritméticas
+arithmeticExpression: addSubtractExpression
+                  | arithmeticAssignmentExpression
+                  | powerExpression;
+
+// Expressões Aritméticas (/ *) - +;
+// Define como a adição (+) e a subtração (-) em expressões aritméticas
+// (1 / 2) * 2 + 2
+// 3^6 = (3*3*3*3*3*3)
+addSubtractExpression: multiplyDivideExpression ((ADD | SUB) multiplyDivideExpression)*;
+
+// Define como a multiplicação (*) e a divisão (/) são tratadas em expressões aritméticas
+multiplyDivideExpression: unaryExpression ((MUL | DIV) unaryExpression)*;
+
+unaryExpression: ADD? primaryExpression | SUB primaryExpression;
+
+// var x: number = (2  2); 2 + 2 
+primaryExpression: NUM | VARIABLE_NAME | OPENPAREN arithmeticExpression CLOSEPAREN;
+
+powerExpression: (NUM | VARIABLE_NAME) POW (NUM | VARIABLE_NAME);
+
+packageStatement: PACKAGE packagePath SEMICOLON;
+
+packagePath: (ID | VARIABLE_NAME) (DOT (ID | VARIABLE_NAME))*;
+
+importStatement: IMPORT importPath SEMICOLON;
+
+importPath: ((ID | VARIABLE_NAME) (DOT (ID | VARIABLE_NAME))*) (DOT CLASS_NAME);
+
+classMemberDeclaration: classVarDeclaration
+                    | constructorDeclaration
+                    | methodDeclaration;
+
+// Regra para declarar uma classe
+classDeclaration: CLASS CLASS_NAME (IMPLEMENTS CLASS_NAME)? OPENBRACE classMemberDeclaration* CLOSEBRACE;
+
+// Regra para declarar uma interface
+interfaceDeclaration: INTERFACE CLASS_NAME OPENBRACE interfaceMemberDeclaration* CLOSEBRACE;
+
+// Membro de interface pode ser um método
+interfaceMemberDeclaration: methodDeclaration SEMICOLON;
+
+// Regra para declarar variáveis de classe
+classVarDeclaration: VAR VARIABLE_NAME DOUBLEDOT dataType SEMICOLON;
+
+// Regra para declarar um construtor
+constructorDeclaration: CONSTRUCTOR OPENPAREN parameterConstructor CLOSEPAREN OPENBRACE constructorBody CLOSEBRACE;
+
+// Regra para os parâmetros do construtor
+parameterConstructor: VARIABLE_NAME DOUBLEDOT dataType (COMMA VARIABLE_NAME DOUBLEDOT dataType)*;
+
+// Corpo do construtor
+constructorBody: constructorAssignment*;
+
+// Regra para atribuições dentro do construtor
+constructorAssignment: THIS DOT VARIABLE_NAME ASSIGN VARIABLE_NAME SEMICOLON;
+
+// Regra para declarar um método
+methodDeclaration: METHOD methodName OPENPAREN parameters? CLOSEPAREN DOUBLEDOT dataType OPENBRACE methodBody? CLOSEBRACE;
+
+// Corpo do método (pode conter returnStatement e statement)
+methodBody: (methodReturnStatement | statement)*;
+
+// Regra para chamar um método
+methodCall: VARIABLE_NAME DOT methodName OPENPAREN arguments? CLOSEPAREN;
+
+methodName: VARIABLE_NAME;
+
+// Regra para validar o uso de "this.name" dentro do corpo do método
+thisNameUsage: THIS DOT VARIABLE_NAME;
+
+// Regra para retornos de método
+methodReturnStatement: RETURN expression SEMICOLON;
+
+// Argumentos para chamadas de método
+arguments: expression (COMMA expression)*;
+
+
+// Regra de Arrays
+// var s: array string = ["Abacaxi", "Banana", "Uva"];
+// var s: string = frutas[0];
+// frutas[0] = "Maçã";
+// var 
 // Palavras-chave da linguagem
 CLASS: 'class';
 CONSTRUCTOR: 'constructor';
@@ -98,7 +204,7 @@ NEW: 'new';
 THIS: 'this';
 TRUE: 'true';
 FALSE: 'false';
-CONCAT: '+';
+POW: '^';
 
 // Delimitadores
 OPENBRACE: '{';
@@ -151,7 +257,8 @@ COMMENT_LINE: '//' ~[\r\n]* -> skip;
 STRING_LITERAL: '"' ~["\r\n]* '"';
 NUM: '-'? [0-9]+ ('.' [0-9]+)?;
 BOOL: TRUE | FALSE;
-VARIABLE_NAME: [a-z][a-zA-Z0-9_]*;
+CLASS_NAME: [A-Z][a-zA-Z0-9]*;
+VARIABLE_NAME: [a-z][a-zA-Z0-9]*;
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 // Regra para arrays

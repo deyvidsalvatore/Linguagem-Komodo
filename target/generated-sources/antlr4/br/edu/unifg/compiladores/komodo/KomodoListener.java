@@ -48,6 +48,26 @@ public interface KomodoListener extends ParseTreeListener {
 	 */
 	void exitVarDeclaration(KomodoParser.VarDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link KomodoParser#assignmentStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterAssignmentStatement(KomodoParser.AssignmentStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#assignmentStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitAssignmentStatement(KomodoParser.AssignmentStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#arrayElementAssign}.
+	 * @param ctx the parse tree
+	 */
+	void enterArrayElementAssign(KomodoParser.ArrayElementAssignContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#arrayElementAssign}.
+	 * @param ctx the parse tree
+	 */
+	void exitArrayElementAssign(KomodoParser.ArrayElementAssignContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link KomodoParser#dataType}.
 	 * @param ctx the parse tree
 	 */
@@ -227,4 +247,284 @@ public interface KomodoListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitElseStatement(KomodoParser.ElseStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#whileStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterWhileStatement(KomodoParser.WhileStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#whileStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitWhileStatement(KomodoParser.WhileStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#arithmeticAssignmentExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticAssignmentExpression(KomodoParser.ArithmeticAssignmentExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#arithmeticAssignmentExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticAssignmentExpression(KomodoParser.ArithmeticAssignmentExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#arithmeticExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterArithmeticExpression(KomodoParser.ArithmeticExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#arithmeticExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitArithmeticExpression(KomodoParser.ArithmeticExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#addSubtractExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddSubtractExpression(KomodoParser.AddSubtractExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#addSubtractExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddSubtractExpression(KomodoParser.AddSubtractExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#multiplyDivideExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultiplyDivideExpression(KomodoParser.MultiplyDivideExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#multiplyDivideExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultiplyDivideExpression(KomodoParser.MultiplyDivideExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#unaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnaryExpression(KomodoParser.UnaryExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#unaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnaryExpression(KomodoParser.UnaryExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPrimaryExpression(KomodoParser.PrimaryExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPrimaryExpression(KomodoParser.PrimaryExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#powerExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPowerExpression(KomodoParser.PowerExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#powerExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPowerExpression(KomodoParser.PowerExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#packageStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackageStatement(KomodoParser.PackageStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#packageStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackageStatement(KomodoParser.PackageStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#packagePath}.
+	 * @param ctx the parse tree
+	 */
+	void enterPackagePath(KomodoParser.PackagePathContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#packagePath}.
+	 * @param ctx the parse tree
+	 */
+	void exitPackagePath(KomodoParser.PackagePathContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#importStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportStatement(KomodoParser.ImportStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#importStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportStatement(KomodoParser.ImportStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#importPath}.
+	 * @param ctx the parse tree
+	 */
+	void enterImportPath(KomodoParser.ImportPathContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#importPath}.
+	 * @param ctx the parse tree
+	 */
+	void exitImportPath(KomodoParser.ImportPathContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#classMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassMemberDeclaration(KomodoParser.ClassMemberDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#classMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassMemberDeclaration(KomodoParser.ClassMemberDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassDeclaration(KomodoParser.ClassDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#classDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassDeclaration(KomodoParser.ClassDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#interfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceDeclaration(KomodoParser.InterfaceDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#interfaceDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceDeclaration(KomodoParser.InterfaceDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMemberDeclaration(KomodoParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMemberDeclaration(KomodoParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#classVarDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterClassVarDeclaration(KomodoParser.ClassVarDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#classVarDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitClassVarDeclaration(KomodoParser.ClassVarDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#constructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorDeclaration(KomodoParser.ConstructorDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#constructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorDeclaration(KomodoParser.ConstructorDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#parameterConstructor}.
+	 * @param ctx the parse tree
+	 */
+	void enterParameterConstructor(KomodoParser.ParameterConstructorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#parameterConstructor}.
+	 * @param ctx the parse tree
+	 */
+	void exitParameterConstructor(KomodoParser.ParameterConstructorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#constructorBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorBody(KomodoParser.ConstructorBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#constructorBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorBody(KomodoParser.ConstructorBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#constructorAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorAssignment(KomodoParser.ConstructorAssignmentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#constructorAssignment}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorAssignment(KomodoParser.ConstructorAssignmentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodDeclaration(KomodoParser.MethodDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#methodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodDeclaration(KomodoParser.MethodDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodBody(KomodoParser.MethodBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#methodBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodBody(KomodoParser.MethodBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodCall(KomodoParser.MethodCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodCall(KomodoParser.MethodCallContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#methodName}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodName(KomodoParser.MethodNameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#methodName}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodName(KomodoParser.MethodNameContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#thisNameUsage}.
+	 * @param ctx the parse tree
+	 */
+	void enterThisNameUsage(KomodoParser.ThisNameUsageContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#thisNameUsage}.
+	 * @param ctx the parse tree
+	 */
+	void exitThisNameUsage(KomodoParser.ThisNameUsageContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#methodReturnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodReturnStatement(KomodoParser.MethodReturnStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#methodReturnStatement}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodReturnStatement(KomodoParser.MethodReturnStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link KomodoParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void enterArguments(KomodoParser.ArgumentsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link KomodoParser#arguments}.
+	 * @param ctx the parse tree
+	 */
+	void exitArguments(KomodoParser.ArgumentsContext ctx);
 }
