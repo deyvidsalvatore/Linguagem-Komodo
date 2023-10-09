@@ -76,13 +76,73 @@ public class KomodoBaseListener implements KomodoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArrayElementAssign(KomodoParser.ArrayElementAssignContext ctx) { }
+	@Override public void enterArrayAssignmentStatement(KomodoParser.ArrayAssignmentStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArrayElementAssign(KomodoParser.ArrayElementAssignContext ctx) { }
+	@Override public void exitArrayAssignmentStatement(KomodoParser.ArrayAssignmentStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionCall(KomodoParser.FunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionCall(KomodoParser.FunctionCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionName(KomodoParser.FunctionNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionName(KomodoParser.FunctionNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterObjectDeclaration(KomodoParser.ObjectDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitObjectDeclaration(KomodoParser.ObjectDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArrayIndexDeclaration(KomodoParser.ArrayIndexDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrayIndexDeclaration(KomodoParser.ArrayIndexDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIndex(KomodoParser.IndexContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIndex(KomodoParser.IndexContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -95,6 +155,18 @@ public class KomodoBaseListener implements KomodoListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDataType(KomodoParser.DataTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterArrayType(KomodoParser.ArrayTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitArrayType(KomodoParser.ArrayTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -484,13 +556,13 @@ public class KomodoBaseListener implements KomodoListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceMemberDeclaration(KomodoParser.InterfaceMemberDeclarationContext ctx) { }
+	@Override public void enterInterfaceMethodDeclaration(KomodoParser.InterfaceMethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceMemberDeclaration(KomodoParser.InterfaceMemberDeclarationContext ctx) { }
+	@Override public void exitInterfaceMethodDeclaration(KomodoParser.InterfaceMethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

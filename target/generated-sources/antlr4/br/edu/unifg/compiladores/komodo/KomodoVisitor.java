@@ -41,17 +41,53 @@ public interface KomodoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignmentStatement(KomodoParser.AssignmentStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KomodoParser#arrayElementAssign}.
+	 * Visit a parse tree produced by {@link KomodoParser#arrayAssignmentStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitArrayElementAssign(KomodoParser.ArrayElementAssignContext ctx);
+	T visitArrayAssignmentStatement(KomodoParser.ArrayAssignmentStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#functionCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCall(KomodoParser.FunctionCallContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#functionName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionName(KomodoParser.FunctionNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#objectDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObjectDeclaration(KomodoParser.ObjectDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#arrayIndexDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayIndexDeclaration(KomodoParser.ArrayIndexDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#index}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIndex(KomodoParser.IndexContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KomodoParser#dataType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDataType(KomodoParser.DataTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link KomodoParser#arrayType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArrayType(KomodoParser.ArrayTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KomodoParser#expression}.
 	 * @param ctx the parse tree
@@ -245,11 +281,11 @@ public interface KomodoVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInterfaceDeclaration(KomodoParser.InterfaceDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link KomodoParser#interfaceMemberDeclaration}.
+	 * Visit a parse tree produced by {@link KomodoParser#interfaceMethodDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceMemberDeclaration(KomodoParser.InterfaceMemberDeclarationContext ctx);
+	T visitInterfaceMethodDeclaration(KomodoParser.InterfaceMethodDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link KomodoParser#classVarDeclaration}.
 	 * @param ctx the parse tree
