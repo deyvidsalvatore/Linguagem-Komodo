@@ -2,6 +2,9 @@
 
 A linguagem Komodo foi concebida com um enfoque especial na simplicidade, visando eliminar complexidades desnecessárias. Ao adotar os princípios do POO, a linguagem permite a criação de objetos personalizados, promovendo a modularização do código e facilitando o desenvolvimento de sistemas e aplicativos de diferentes naturezas.
 
+## Documentação
+Link: https://docs.google.com/document/d/1Oba0qDOk0wDptmyltnztDDyVa9NV2_qU7kdFVN1n1gw/edit?usp=sharing
+
 ## Equipe
 1. ALLAN JORGE
 2. ARTHUR LUIZ
