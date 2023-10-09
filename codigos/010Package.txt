@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 package geometry;
-=======
-package Geometry;
->>>>>>> f4b87ed2b97122a3e3e9bfb81e066dea532105db
 
 class Rectangle {
     var width: number;
@@ -18,10 +14,5 @@ class Rectangle {
     }
 }
 
-<<<<<<< HEAD
 var retangulo = new Rectangle(4, 6);
 print("Área do retângulo: " + retangulo.getArea());
-=======
-var rectangle = new Rectangle(4, 6);
-print("Área do retângulo: " + rectangle.getArea());
->>>>>>> f4b87ed2b97122a3e3e9bfb81e066dea532105db
