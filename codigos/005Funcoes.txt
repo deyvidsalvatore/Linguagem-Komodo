@@ -1,7 +1,7 @@
 var name: string = "Alice";
 var age: number = 30;
 var isStudent: boolean = true;
-var scores: array = [90, 85, 78, 92];
+var scores: array number = [90, 85, 78, 92];
 
 function greet(name: string): string {
     return "Hello, " + name + "!";
