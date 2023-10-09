@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+var numbers: array number{4} = [1, 2, 3, 4];
+var fruits: array string{3}{3} = [["apple", "banana", "cherry"], ["orange", "grape", "lemon"]];
+
+var colors: array string = ["red", "green", "blue"];
+var firstColor: string = colors{0};
+
+colors{1} = "orange";
+
+var x: number = numbers{2};
+var y: string = fruits{0};
+=======
 var numbers: array number = [1, 2, 3, 4];
 var fruits: array string = ["apple", "banana", "cherry"];
 
@@ -8,3 +20,4 @@ colors[1] = "orange";
 
 var x: number = numbers[2];
 var y: string = fruits[0];
+>>>>>>> f4b87ed2b97122a3e3e9bfb81e066dea532105db
