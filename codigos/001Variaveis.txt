@@ -8,4 +8,4 @@ var flag: boolean = true;
 var isGreaterOrEqual: boolean = a >= b;
 var isLessOrEqual: boolean = a <= b;
 var frase = "Hello World";
-var colors: array = ["red", "green", "blue"];
+var colors: array string = ["red", "green", "blue"];
