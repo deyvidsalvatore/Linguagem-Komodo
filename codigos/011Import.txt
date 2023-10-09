@@ -1,5 +1,5 @@
 // Arquivo Rectangle.nagi dentro de uma pasta Geometry
-package Geometry;
+package geometry;
 
 class Rectangle {
     var width: number;
@@ -16,9 +16,9 @@ class Rectangle {
 }
 
 // Arquivo Principal.nagi dentro de uma pasta Geometry
-package Geometry;
+package geometry;
 
-import Geometry.Rectangle;
+import geometry.Rectangle;
 
 class Principal {
     method run() {
@@ -26,6 +26,8 @@ class Principal {
         var area = rectangle.getArea();
         print("Área do retângulo: " + area);
     }
+}
 
-    run();
+var rodar = new Principal();
+rodar.run();
 }

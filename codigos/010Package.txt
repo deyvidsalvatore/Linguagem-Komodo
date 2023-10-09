@@ -1,4 +1,4 @@
-package Geometry;
+package geometry;
 
 class Rectangle {
     var width: number;
@@ -14,5 +14,5 @@ class Rectangle {
     }
 }
 
-var rectangle = new Rectangle(4, 6);
-print("Área do retângulo: " + rectangle.getArea());
+var retangulo = new Rectangle(4, 6);
+print("Área do retângulo: " + retangulo.getArea());
