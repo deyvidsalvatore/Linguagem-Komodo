@@ -175,7 +175,7 @@ constructorAssignment: THIS DOT VARIABLE_NAME ASSIGN VARIABLE_NAME SEMICOLON;
 methodDeclaration: METHOD methodName OPENPAREN parameters? CLOSEPAREN returnType? OPENBRACE methodBody? CLOSEBRACE;
 
 // Corpo do método (pode conter returnStatement e statement)
-methodBody: (methodReturnStatement | statement)*;
+methodBody: (methodReturnStatement | statement)+;
 
 // Regra para chamar um método
 methodCall: VARIABLE_NAME DOT methodName OPENPAREN arguments? CLOSEPAREN;
