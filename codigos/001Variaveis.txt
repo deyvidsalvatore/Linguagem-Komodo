@@ -7,5 +7,15 @@ var isLessThan: boolean = a < b;
 var flag: boolean = true;
 var isGreaterOrEqual: boolean = a >= b;
 var isLessOrEqual: boolean = a <= b;
-var frase = "Hello World";
-var colors: array string = ["red", "green", "blue"];
+var frase: string = "Hello World";
+
+print(a);
+print(b);
+print(isEqual);
+print(isNotEqual);
+print(isGreaterThan);
+print(isLessThan);
+print(flag);
+print(isGreaterOrEqual);
+print(isLessOrEqual);
+print(frase);

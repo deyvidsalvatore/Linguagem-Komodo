@@ -1,11 +1,29 @@
 var name: string = "Alice";
 var age: number = 30;
 var isStudent: boolean = true;
-var scores: array number = [90, 85, 78, 92];
+
+function checaFuncao(num1: number, num2: number) {
+	var count: number = 0;
+	if(num1 > num2) {
+		print("Num1 é maior que Num2");
+	} elif (num2 > num1) {
+		print("Num2 é maior que Num1");
+		while (count < 5) {
+			print(count);
+			count = count + 1;
+		}
+	} else {
+		print("Ambos são iguais");
+	}
+}
 
 function greet(name: string): string {
     return "Hello, " + name + "!";
 }
 
 var message: string = greet("Alice");
-print(message); // Saída: Hello, Alice!
+print(message);
+
+checaFuncao(1, 2);
+
+

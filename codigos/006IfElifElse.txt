@@ -1,0 +1,24 @@
+var x: number = 5;
+var y: number = 3;
+
+if (x > y) {
+    print("x é maior que y");
+    if (true) {
+    	print("true do if dentro do if");
+    }
+    var i: number = 1;
+	while (i <= 5) {
+		print(i);
+		i = i + 1;
+	}
+} elif (x < y) {
+    print("x é menor que y");
+    if (true) {
+    	print("true do elif");
+    }
+} elif (x != y) {
+    print("x é diferente de y");
+} else {
+	print("nenhuma");
+	
+}
