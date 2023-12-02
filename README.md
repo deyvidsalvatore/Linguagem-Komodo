@@ -38,8 +38,18 @@ var isLessThan: boolean = a < b;
 var flag: boolean = true;
 var isGreaterOrEqual: boolean = a >= b;
 var isLessOrEqual: boolean = a <= b;
-var frase = "Hello World";
-var colors: array = ["red", "green", "blue"];
+var frase: string = "Hello World";
+
+print(a);
+print(b);
+print(isEqual);
+print(isNotEqual);
+print(isGreaterThan);
+print(isLessThan);
+print(flag);
+print(isGreaterOrEqual);
+print(isLessOrEqual);
+print(frase);
 
 ```
 ### Operações Aritméticas e Booleanas
@@ -48,13 +58,24 @@ var x: number = 1 + 2;
 var y: number = 1 - 2;
 var z: number = 1 * 2;
 var g: number = 1 / 2;
-var h: number = 1 % 2;
-var a: number = x += 1;
+var h: number = (1 / 2) - 3;
+var a: number = x + 1;
 var p: boolean = true;
 var q: boolean = false;
 var andResult: boolean = p || q;
 var orResult: boolean = p && q;
 var notResult: boolean = !p;
+
+print(x);
+print(y);
+print(z);
+print(g);
+print(h);
+print(p);
+print(q);
+print(andResult);
+print(orResult);
+print(notResult);
 ```
 ### Bloco de Repetição While
 ```
@@ -71,7 +92,7 @@ print("Enter your name: ");
 input(name);
 print("Enter your age: ");
 input(age);
-print('Enter your gender: ");
+print("Enter your gender: ");
 print("Hello, " + name + "!");
 print("Your age is, " + age + "!");
 ```
@@ -92,102 +113,55 @@ if (x > y) {
 var name: string = "Alice";
 var age: number = 30;
 var isStudent: boolean = true;
-var scores: array = [90, 85, 78, 92];
+
+function checaFuncao(num1: number, num2: number) {
+	var count: number = 0;
+	if(num1 > num2) {
+		print("Num1 é maior que Num2");
+	} elif (num2 > num1) {
+		print("Num2 é maior que Num1");
+		while (count < 5) {
+			print(count);
+			count = count + 1;
+		}
+	} else {
+		print("Ambos são iguais");
+	}
+}
 
 function greet(name: string): string {
     return "Hello, " + name + "!";
 }
 
-```
-### Arrays
-```
-var numbers: array number = [1, 2, 3, 4];
-var fruits: array string = ["apple", "banana", "cherry"];
+var message: string = greet("Alice");
+print(message);
 
-var colors: array string = ["red", "green", "blue"];
-var firstColor: string = colors[0];
-
-colors[1] = "orange";
-
-var x: number = numbers[2];
-var y: string = fruits[0];
+checaFuncao(1, 2);
 
 ```
 ### Classes e Métodos
 ```
 class Person {
-    var name: string;
-    var age: number;
+	var nome: string;
+	var idade: number;
+	
+	constructor(nome: string, idade: number) {
+		this.nome = nome;
+		this.idade = idade;
+	}
 
-    constructor(name: string, age: number) {
-        this.name = name;
-        this.age = age;
-    }
-
-    method sayHello(): string {
-        return "Hello, my name is " + this.name;
-    }
+	method printNome() {
+		print("Deyvid");
+	}
+	
+	method rh(registro: number) {
+		print(registro);
+	}
 }
 
-var person1 = new Person("Alice", 30);
-var person2 = new Person("Bob", 25);
-
-print(person1.sayHello());
-print(person2.sayHello());
-```
-
-### Interface e Métodos
-```
-interface Printable {
-    method printMessage(): void;
-}
-class Message implements Printable {
-    method printMessage(): void {
-        print("Mensagem impressa!");
-    }
-}
-
-interface Calculator {
-    method add(a: number, b: number): number;
-    method subtract(a: number, b: number): number;
-}
-
-```
-
-### Package e Import
-```
-// Arquivo Rectangle.modo dentro de uma pasta Geometry
-package Geometry;
-
-class Rectangle {
-    var width: number;
-    var height: number;
-
-    constructor(width: number, height: number) {
-        this.width = width;
-        this.height = height;
-    }
-
-    method getArea(): number {
-        return this.width * this.height;
-    }
-}
-
-
-// Arquivo Principal.modo dentro de uma pasta Programa que contém a pasta Geometry
-package Programa;
-
-import Geometry.Rectangle;
-
-class Principal {
-    method run() {
-        var rectangle = new Rectangle(10, 5);
-        var area = rectangle.getArea();
-        print("Área do retângulo: " + area);
-    }
-    run();
-}
-
+var pessoa1 = new Person("Bob", 20);
+pessoa1.printNome();
+pessoa1.rh(123456789);
 ```
 
 ## Licença
