@@ -17,13 +17,11 @@ A linguagem Komodo foi concebida com um enfoque especial na simplicidade, visand
 
 ## Foco principal do Komdo
 * Estrutura de Classe Simplificada: A principal característica desta linguagem é a estrutura de classe simplificada. Ela permite a definição de classes com atributos, métodos e um construtor, permitindo aos desenvolvedores criarem objetos personalizados para atender às necessidades de seus projetos.
-* Package, Import e Interface: A linguagem de programação Komodo incorpora os conceitos de pacotes (packages), importações (imports) e interfaces (interfaces) para promover a organização e a modularidade do código. Esses elementos desempenham um papel fundamental no desenvolvimento de sistemas complexos e na criação de bibliotecas reutilizáveis.
 * Tipos de Dados Básicos: A linguagem suporta tipos de dados básicos, como números, strings, booleanos e arrays, tornando-a flexível o suficiente para uma ampla gama de aplicativos.
 * Controle de Fluxo: Comandos de decisão, como "if," "else," e "elif," possibilitam a criação de lógica condicional, enquanto o comando "while" permite a implementação de loops de repetição.
 * Operações Aritméticas e Comparativas: Operadores aritméticos e comparativos facilitam o processamento de dados e a tomada de decisões dentro dos programas.
 * Funções Personalizadas: Além das classes, a linguagem oferece suporte para a definição e chamada de funções personalizadas, permitindo que os desenvolvedores modulem em seu código e utilize blocos de lógica em várias partes do programa.
 * Escopo de Variáveis: A linguagem ver como as variáveis são tratadas em relação ao escopo, como variáveis locais e globais, e como a linguagem gerencia o ciclo de vida das variáveis.
-* Manipulação de Arrays Unidimensional e Bidimensional: A linguagem conta com as operações e métodos disponíveis para manipulação de arrays.
 * Entrada e Saída de Dados: A linguagem observa como os programas escritos nesta linguagem podem interagir com o ambiente externo, como a entrada de dados pelo usuário e a exibição de resultados.
 
 ## Exemplos de Código
